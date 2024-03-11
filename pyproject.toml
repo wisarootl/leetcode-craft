@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "leetcode-craft"
+version = "0.1.0"
+description = ""
+authors = ["Wisaroot Lertthaweedech <l.wisaroot@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+black = { version = "^24.2.0", extras = ["jupyter"] }
+isort = "^5.13.2"
+ipykernel = "^6.29.3"
+ruff = "*"
+mypy = "*"
+pre-commit = "*"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 105
+target-version = ['py312']
+include = '.*\.(py|ipynb)$'  # All .py and .ipynb files
+
+[tool.isort]
+line_length = 105
+
+[tool.ruff]
+line-length = 105
+target-version = 'py312'
+
+[tool.mypy]
+files = '**/*.py'
+warn_unused_configs = true
+ignore_missing_imports = true
