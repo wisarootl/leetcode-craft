@@ -7,6 +7,33 @@ class TreeNode:
         self.left = left
         self.right = right
 
+    def __repr__(self):
+        if not self:
+            return str([])
+
+        result = []
+        queue = deque([self])
+
+        while queue:
+            node = queue.popleft()
+            if node:
+                result.append(node.val)
+                queue.append(node.left)
+                queue.append(node.right)
+            else:
+                result.append(None)
+
+        # Remove trailing nulls from the array representation
+        while result and result[-1] == None:
+            result.pop()
+
+        return str(result)
+
+    def __eq__(self, other):
+        if isinstance(other, TreeNode):
+            return self.val == other.val and self.left == other.left and self.right == other.right
+        return False
+
 
 def build_binary_tree_from_array_representation(nodes: list):
     if not nodes:
