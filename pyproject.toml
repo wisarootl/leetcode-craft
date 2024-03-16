@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "leetcode-craft"
+name = "leetcode_craft"
 version = "0.1.0"
 description = ""
 authors = ["Wisaroot Lertthaweedech <l.wisaroot@gmail.com>"]
