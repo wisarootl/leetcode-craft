@@ -1,33 +1,47 @@
-from collections import deque
-
-
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-    def __repr__(self):
+    def max_depth(self):
+        def _max_depth(node: "TreeNode"):
+            if node is None:
+                return 0
+            left_depth = _max_depth(node.left)
+            right_depth = _max_depth(node.right)
+            return max(left_depth, right_depth) + 1
+
+        return _max_depth(self)
+
+    def array_representation(self):
         if not self:
-            return str([])
+            return []
 
+        max_depth = self.max_depth()
+        nodes = [self]
         result = []
-        queue = deque([self])
 
-        while queue:
-            node = queue.popleft()
-            if node:
-                result.append(node.val)
-                queue.append(node.left)
-                queue.append(node.right)
-            else:
-                result.append(None)
+        for _ in range(1, max_depth + 1):
+            level_nodes = []
+            for node in nodes:
+                if node:
+                    result.append(node.val)
+                    level_nodes.append(node.left if node.left else None)
+                    level_nodes.append(node.right if node.right else None)
+                else:
+                    result.append(None)
+                    level_nodes.append(None)
+                    level_nodes.append(None)
+            nodes = level_nodes
 
-        # Remove trailing nulls from the array representation
         while result and result[-1] is None:
             result.pop()
 
-        return str(result)
+        return result
+
+    def __repr__(self):
+        return str(self.array_representation())
 
     def __eq__(self, other):
         if isinstance(other, TreeNode):
@@ -39,22 +53,15 @@ def build_binary_tree_from_array_representation(nodes: list):
     if not nodes:
         return None
 
-    root = TreeNode(nodes[0])
-    queue = deque([root])
-    i = 1
+    nodes = [TreeNode(val) if val is not None else None for val in nodes]
 
-    while queue and i < len(nodes):
+    for i in range(len(nodes)):
+        node = nodes[i]
+        if node is not None:
+            left_child_idx = 2 * i + 1
+            right_child_idx = 2 * i + 2
 
-        current_node = queue.popleft()
+            node.left = nodes[left_child_idx] if left_child_idx < len(nodes) else None
+            node.right = nodes[right_child_idx] if right_child_idx < len(nodes) else None
 
-        if nodes[i] is not None:
-            current_node.left = TreeNode(nodes[i])
-            queue.append(current_node.left)
-        i += 1
-
-        if i < len(nodes) and nodes[i] is not None:
-            current_node.right = TreeNode(nodes[i])
-            queue.append(current_node.right)
-        i += 1
-
-    return root
+    return nodes[0]
