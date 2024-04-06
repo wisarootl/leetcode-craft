@@ -1,11 +1,13 @@
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
+    def __init__(
+        self, val: float | int = 0, left: "TreeNode" | None = None, right: "TreeNode" | None = None
+    ):
         self.val = val
         self.left = left
         self.right = right
 
-    def max_depth(self):
-        def _max_depth(node: "TreeNode"):
+    def max_depth(self) -> int:
+        def _max_depth(node: "TreeNode") -> int:
             if node is None:
                 return 0
             left_depth = _max_depth(node.left)
@@ -14,7 +16,7 @@ class TreeNode:
 
         return _max_depth(self)
 
-    def array_representation(self):
+    def array_representation(self) -> list:
         if not self:
             return []
 
@@ -49,7 +51,7 @@ class TreeNode:
         return False
 
 
-def build_binary_tree_from_array_representation(nodes: list):
+def build_binary_tree_from_array_representation(nodes: list) -> TreeNode | None:
     if not nodes:
         return None
 
