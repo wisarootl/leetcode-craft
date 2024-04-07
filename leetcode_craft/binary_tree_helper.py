@@ -1,13 +1,16 @@
 class TreeNode:
     def __init__(
-        self, val: float | int = 0, left: "TreeNode" | None = None, right: "TreeNode" | None = None
+        self,
+        val: float | int | None = 0,
+        left: "TreeNode" | None = None,
+        right: "TreeNode" | None = None,
     ):
         self.val = val
         self.left = left
         self.right = right
 
     def max_depth(self) -> int:
-        def _max_depth(node: "TreeNode") -> int:
+        def _max_depth(node: "TreeNode" | None) -> int:
             if node is None:
                 return 0
             left_depth = _max_depth(node.left)
@@ -21,7 +24,7 @@ class TreeNode:
             return []
 
         max_depth = self.max_depth()
-        nodes = [self]
+        nodes: list["TreeNode" | None] = [self]
         result = []
 
         for _ in range(1, max_depth + 1):
