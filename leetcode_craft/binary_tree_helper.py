@@ -1,16 +1,19 @@
+from typing import Optional
+
+
 class TreeNode:
     def __init__(
         self,
-        val: float | int | None = 0,
-        left: "TreeNode" | None = None,
-        right: "TreeNode" | None = None,
+        val: Optional[float | int] = 0,
+        left: Optional["TreeNode"] = None,
+        right: Optional["TreeNode"] = None,
     ):
         self.val = val
         self.left = left
         self.right = right
 
     def max_depth(self) -> int:
-        def _max_depth(node: "TreeNode" | None) -> int:
+        def _max_depth(node: Optional["TreeNode"]) -> int:
             if node is None:
                 return 0
             left_depth = _max_depth(node.left)
