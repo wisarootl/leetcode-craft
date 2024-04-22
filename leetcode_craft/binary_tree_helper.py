@@ -69,7 +69,3 @@ def build_binary_tree_from_array_representation(nodes: list) -> TreeNode | None:
             node.right = nodes[right_child_idx] if right_child_idx < len(nodes) else None
 
     return nodes[0]
-
-
-def some_function(a, b):
-    return a + b
