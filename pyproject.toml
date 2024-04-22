@@ -16,6 +16,10 @@ mypy = "*"
 pre-commit = "*"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

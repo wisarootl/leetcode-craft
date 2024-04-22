@@ -332,3 +332,6 @@ cython_debug/
 
 # ruff
 .ruff_cache/
+
+# vscode
+.vscode/
