@@ -18,6 +18,7 @@ pre-commit = "*"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "*"
+pytest-cov = "*"
 
 
 [build-system]

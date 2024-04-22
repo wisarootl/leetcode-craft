@@ -23,9 +23,6 @@ class TreeNode:
         return _max_depth(self)
 
     def array_representation(self) -> list:
-        if not self:
-            return []
-
         max_depth = self.max_depth()
         nodes: list["TreeNode" | None] = [self]
         result = []
