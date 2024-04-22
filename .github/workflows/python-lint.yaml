@@ -30,5 +30,11 @@ jobs:
       - name: Install dependencies
         run: poetry install --only=dev
 
+      - name: Install pre-commit
+        run: pip install pre-commit
+
+      - name: Run pre-commit
+        run: pre-commit run --all-files
+
       - name: Lint and check
         run: make lint
