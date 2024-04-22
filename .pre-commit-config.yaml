@@ -1,16 +1,23 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
 
-  # Add a custom hook to run "make lint"
   - repo: local
     hooks:
       - id: make-lint
-        name: Run make lint
+        name: linting
         entry: make lint
         language: system
         pass_filenames: false
         types: [file]
+
+  - repo: https://github.com/gitguardian/ggshield
+    rev: v1.26.0
+    hooks:
+      - id: ggshield
+        language: python
+        stages: [commit]
+        args: ['secret', 'scan', 'pre-commit']

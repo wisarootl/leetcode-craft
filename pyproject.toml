@@ -13,12 +13,13 @@ isort = "^5.13.2"
 ipykernel = "^6.29.3"
 ruff = "*"
 mypy = "*"
-pre-commit = "*"
 
 
 [tool.poetry.group.dev.dependencies]
 pytest = "*"
 pytest-cov = "*"
+pre-commit = "*"
+ggshield = "*"
 
 
 [build-system]
