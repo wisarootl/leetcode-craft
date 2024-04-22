@@ -1,4 +1,4 @@
-name: Python Lint
+name: Python Test
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
       - synchronize
 
 jobs:
-  linter_and_code_checks:
+  test_and_coverage:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,7 +28,7 @@ jobs:
           poetry-version: '1.8.2'
 
       - name: Install dependencies
-        run: poetry install --only=dev
+        run: poetry install --only=main,test
 
-      - name: Lint and check
-        run: make lint
+      - name: Run tests with coverage
+        run: make test
