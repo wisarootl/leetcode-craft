@@ -8,6 +8,7 @@ on:
     types:
       - opened
       - synchronize
+      - reopened
 
 jobs:
   test_and_coverage:
@@ -16,6 +17,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -32,3 +35,15 @@ jobs:
 
       - name: Run tests with coverage
         run: make test
+
+      - name: Check directory path
+        run: |
+          ls -l /home/runner/work/leetcode-craft/
+          ls -l /home/runner/work/leetcode-craft/leetcode-craft/leetcode_craft
+          pwd
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

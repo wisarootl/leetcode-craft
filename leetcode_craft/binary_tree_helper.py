@@ -28,16 +28,15 @@ class TreeNode:
         result = []
 
         for _ in range(1, max_depth + 1):
-            level_nodes = []
+            level_nodes, level_values = [], []
             for node in nodes:
                 if node:
-                    result.append(node.val)
-                    level_nodes.append(node.left if node.left else None)
-                    level_nodes.append(node.right if node.right else None)
+                    level_values.append(node.val)
+                    level_nodes.extend([node.left, node.right])
                 else:
-                    result.append(None)
-                    level_nodes.append(None)
-                    level_nodes.append(None)
+                    level_values.append(None)
+                    level_nodes.extend([None, None])
+            result.extend(level_values)
             nodes = level_nodes
 
         while result and result[-1] is None:
