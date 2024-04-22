@@ -55,3 +55,4 @@ ignore_missing_imports = true
 [tool.coverage.run]
 relative_files = true
 branch = true
+source = ["leetcode_craft/"]
