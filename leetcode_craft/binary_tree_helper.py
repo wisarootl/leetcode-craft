@@ -12,6 +12,14 @@ class TreeNode:
         self.left = left
         self.right = right
 
+    def __repr__(self):
+        return str(self.array_representation())
+
+    def __eq__(self, other):
+        if isinstance(other, TreeNode):
+            return self.val == other.val and self.left == other.left and self.right == other.right
+        return False
+
     def max_depth(self) -> int:
         def _max_depth(node: Optional["TreeNode"]) -> int:
             if node is None:
@@ -43,14 +51,6 @@ class TreeNode:
             result.pop()
 
         return result
-
-    def __repr__(self):
-        return str(self.array_representation())
-
-    def __eq__(self, other):
-        if isinstance(other, TreeNode):
-            return self.val == other.val and self.left == other.left and self.right == other.right
-        return False
 
 
 def build_binary_tree_from_array_representation(nodes: list) -> TreeNode | None:

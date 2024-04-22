@@ -50,3 +50,8 @@ extend-include = ["*.ipynb"]
 files = '**/*.py'
 warn_unused_configs = true
 ignore_missing_imports = true
+
+
+[tool.coverage.run]
+relative_files = true
+branch = true
