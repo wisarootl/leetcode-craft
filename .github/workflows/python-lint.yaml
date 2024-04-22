@@ -8,6 +8,7 @@ on:
     types:
       - opened
       - synchronize
+      - reopened
 
 jobs:
   linter_and_code_checks:
