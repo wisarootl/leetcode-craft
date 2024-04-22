@@ -1,4 +1,4 @@
-from leetcode_craft.binary_tree_helper import TreeNode, build_binary_tree_from_array_representation
+from leetcode_craft.binary_tree_helper import build_binary_tree_from_array_representation
 
 
 def test_build_binary_tree_from_array_representation():

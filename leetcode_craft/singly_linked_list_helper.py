@@ -1,4 +1,4 @@
-from typing import Optional, Any
+from typing import Any, Optional
 
 
 # Definition for singly-linked list.
@@ -30,7 +30,7 @@ class ListNode:
         return current_self is None and current_other is None
 
 
-def build_linked_list(nodes: list) -> ListNode:
+def build_linked_list(nodes: list) -> Optional[ListNode]:
     dummy = ListNode()
     current = dummy
 

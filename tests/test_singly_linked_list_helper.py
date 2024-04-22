@@ -1,4 +1,4 @@
-from leetcode_craft.singly_linked_list_helper import ListNode, build_linked_list
+from leetcode_craft.singly_linked_list_helper import build_linked_list
 
 
 def test_build_linked_list():
@@ -10,7 +10,6 @@ def test_build_linked_list():
     assert head.next.next.val == 3
     assert head.next.next.next.val == 4
     assert head.next.next.next.next.val == 5
-    pass
 
 
 def test_linked_list_repr():
