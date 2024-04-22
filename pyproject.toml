@@ -5,11 +5,9 @@ description = ""
 authors = ["Wisaroot Lertthaweedech <l.wisaroot@gmail.com>"]
 readme = "README.md"
 
-
 [tool.poetry.dependencies]
 python = "^3.12"
 ipykernel = "^6.29.3"
-
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "*"
@@ -19,38 +17,31 @@ isort = "^5.13.2"
 ruff = "*"
 mypy = "*"
 
-
 [tool.poetry.group.test.dependencies]
 pytest = "*"
 pytest-cov = "*"
 
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
 
 [tool.black]
 line-length = 105
 target-version = ['py312']
 include = '.*\.(py|ipynb)$'  # All .py and .ipynb files
 
-
 [tool.isort]
 line_length = 105
-
 
 [tool.ruff]
 line-length = 105
 target-version = 'py312'
 extend-include = ["*.ipynb"]
 
-
 [tool.mypy]
 files = '**/*.py'
 warn_unused_configs = true
 ignore_missing_imports = true
-
 
 [tool.coverage.run]
 relative_files = true
