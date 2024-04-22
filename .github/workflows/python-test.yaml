@@ -36,19 +36,6 @@ jobs:
       - name: Run tests with coverage
         run: make test
 
-      - name: Check directory path
-        run: |
-          ls -l /home/runner/work/leetcode-craft/
-          ls -l /home/runner/work/leetcode-craft/leetcode-craft/leetcode_craft
-          pwd
-
-      - name: Check directory path 2
-        run: |
-          ls -l /home/runner/work/leetcode-craft/leetcode-craft/
-
-      - name: Check coverage.xml contents
-        run: cat /home/runner/work/leetcode-craft/leetcode-craft/coverage.xml
-
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
